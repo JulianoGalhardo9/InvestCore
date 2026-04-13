@@ -1,0 +1,9 @@
+services:
+  order-db:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: investcore-order-sql
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=InvestCore2026!
+    ports:
+      - "14333:1433"
