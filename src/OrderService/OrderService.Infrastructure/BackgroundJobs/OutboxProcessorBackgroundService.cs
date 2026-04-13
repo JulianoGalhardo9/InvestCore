@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using MassTransit;
 using OrderService.Infrastructure.Data;
-using OrderService.Application;
+using InvestCore.Messages;
 
 namespace OrderService.Infrastructure.BackgroundJobs;
 

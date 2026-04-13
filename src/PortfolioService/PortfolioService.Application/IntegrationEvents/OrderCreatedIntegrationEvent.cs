@@ -1,4 +1,4 @@
-namespace PortfolioService.Application.IntegrationEvents;
+namespace InvestCore.Messages;
 public record OrderCreatedIntegrationEvent(
     Guid OrderId, 
     Guid ClientId, 

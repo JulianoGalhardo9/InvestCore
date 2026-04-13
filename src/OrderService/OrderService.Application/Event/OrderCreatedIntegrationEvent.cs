@@ -1,4 +1,4 @@
-namespace OrderService.Application;
+namespace InvestCore.Messages;
 
 public record OrderCreatedIntegrationEvent(
     Guid OrderId, 

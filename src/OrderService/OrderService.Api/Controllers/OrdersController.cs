@@ -26,7 +26,7 @@ public class OrdersController : ControllerBase
 
         _context.Orders.Add(order);
 
-        var eventContent = JsonSerializer.Serialize(new { order.Id, order.ClientId, order.AssetSymbol, order.Quantity, order.Price, order.Status });
+        var eventContent = JsonSerializer.Serialize(new { OrderId = order.Id, ClientId = order.ClientId, AssetSymbol = order.AssetSymbol, Quantity = order.Quantity, Price = order.Price, Status = (int)order.Status });
 
         var outboxMessage = new OutboxMessage("OrderCreatedEvent", eventContent);
         

@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 using MassTransit;
-using PortfolioService.Application.IntegrationEvents;
+using InvestCore.Messages;
 
 namespace PortfolioService.Application.Consumers;
 public class OrderCreatedConsumer : IConsumer<OrderCreatedIntegrationEvent>

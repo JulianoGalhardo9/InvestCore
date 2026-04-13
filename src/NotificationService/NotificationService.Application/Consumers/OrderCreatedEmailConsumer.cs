@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 using MassTransit;
-using NotificationService.Application.IntegrationEvents;
+using InvestCore.Messages;
 
 namespace NotificationService.Application.Consumers;
 
