@@ -1,9 +1,31 @@
+# Lista de serviços da nossa infraestrutura
 services:
+  # Serviço do banco de dados (intacto)
   order-db:
+    # Imagem do SQL Edge
     image: mcr.microsoft.com/azure-sql-edge
+    # Nome do container
     container_name: investcore-order-sql
+    # Variáveis de ambiente
     environment:
+      # Aceite da licença
       - ACCEPT_EULA=Y
+      # Senha do banco
       - MSSQL_SA_PASSWORD=InvestCore2026!
+    # Mapeamento de portas do SQL
     ports:
+      # Porta externa 14333 mapeada para a interna 1433
       - "14333:1433"
+
+  # Serviço do mensageiro RabbitMQ
+  rabbitmq:
+    # Imagem oficial com o painel de gerenciamento (suporta ARM-64 do Mac M3)
+    image: rabbitmq:3-management
+    # Nome do container
+    container_name: investcore-rabbitmq
+    # Mapeamento de portas do RabbitMQ
+    ports:
+      # ALTERADO: Porta externa 5673 (seu Mac) mapeada para a 5672 (interna do container)
+      - "5673:5672"
+      # ALTERADO: Porta externa 15673 (seu navegador) mapeada para a 15672 (interna do container)
+      - "15673:15672"
