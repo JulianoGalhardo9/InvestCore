@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  identity:
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    container_name: investcore-identity
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: dotnet run --project src/IdentityService/IdentityService.Api/IdentityService.Api.csproj --urls "http://0.0.0.0:80"
+
+  order:
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    container_name: investcore-order
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: dotnet run --project src/OrderService/OrderService.Api/OrderService.Api.csproj --urls "http://0.0.0.0:80"
+
+  portfolio:
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    container_name: investcore-portfolio
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: dotnet run --project src/PortfolioService/PortfolioService.Api/PortfolioService.Api.csproj --urls "http://0.0.0.0:80"
+
+  notification:
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    container_name: investcore-notification
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: dotnet run --project src/NotificationService/NotificationService.Api/NotificationService.Api.csproj --urls "http://0.0.0.0:80"
+
+  audit:
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    container_name: investcore-audit
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: dotnet run --project src/AuditService/AuditService.Api/AuditService.Api.csproj --urls "http://0.0.0.0:80"
+
+  gateway:
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    container_name: investcore-gateway
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: dotnet run --project src/ApiGateway/ApiGateway.Api/ApiGateway.Api.csproj --urls "http://0.0.0.0:80"
+    ports:
+      - "5050:80"
+    depends_on:
+      - identity
+      - order
