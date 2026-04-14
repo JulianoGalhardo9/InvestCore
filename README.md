@@ -7,7 +7,6 @@
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker)
 ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-MassTransit-FF6600?style=flat-square&logo=rabbitmq)
 ![Redis](https://img.shields.io/badge/Redis-Cache-DC382D?style=flat-square&logo=redis)
-![Azure](https://img.shields.io/badge/Azure-Container%20Apps-0078D4?style=flat-square&logo=microsoftazure)
 ![xUnit](https://img.shields.io/badge/xUnit-Testes-512BD4?style=flat-square)
 
 ---
